@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OPEXEngine Challenge</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        // Start DOM Manipulation on load
+        $(document).ready(function(){
+            // Change values to uppercase
+            $( "[data-row='1']" ).addClass('uppercase');
+
+            // Create new data-row element
+            let clonedElement = $( "[data-row='2']" ).clone(true);
+            clonedElement.attr('data-row', 3)
+            clonedElement.children().eq(0).text('aaa');
+            clonedElement.children().eq(1).text('bbb');
+            clonedElement.children().eq(2).text('ccc');
+            clonedElement.children().eq(3).text('ddd');
+            $( "[data-row='2']" ).after(clonedElement);
+        });
+
+        // Define function to change order of elements
+        jQuery.fn.changeOrder = function(to) {
+            return this.each(function() {
+                let copyTo = $(to).clone(true);
+                let copyFrom = $(this).clone(true);
+                $(to).replaceWith(copyFrom);
+                $(this).replaceWith(copyTo);
+            });
+        };
+
+        // catch click event for data-row="2" children first div
+        $(function(){
+            $( "[data-row='2']" ).children().first().on("click", function(){
+                $( "[data-row='1']" ).changeOrder($( "[data-row='2']" ));
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div data-row="1" title="data row 1">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+    </div>
+    <div data-row="2" title="data row 2">
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>dd</div>
+    </div>
+</body>
+</html>
+
+<style>
+    .uppercase
+    {
+        text-transform:uppercase;
+    }
+</style>

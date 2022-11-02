@@ -1,0 +1,23 @@
+
+Expected output:
+
+Array
+(
+    [0] => milkyWay
+    [1] => andromeda
+    [2] => VIRGO
+    [3] => Milkyway
+)
+Array
+(
+    [0] => Milkyway
+    [1] => Andromeda
+    [2] => Virgo
+)
+Array
+(
+    [0] => Polaris
+    [1] => Sirius
+    [2] => Rigel
+    [3] => Canopus
+)
