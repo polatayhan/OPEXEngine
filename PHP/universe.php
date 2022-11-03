@@ -54,7 +54,7 @@ Class Stars extends Galaxy {
             }
         }
 
-        // SECOND WAY: (Comment line 53 - 57 and Uncomment line 60)
+        // SECOND WAY: (Comment line 51 - 55 and Uncomment line 61)
         //$stars = array_unique(array_merge($this->stars, $stars));
 
         // Format Each Element
